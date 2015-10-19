@@ -1,0 +1,17 @@
+﻿@model ForumApplication.Models.UserModel
+@{
+    ViewBag.Title = "AddWithHTMLHelperAndModel";
+}
+
+<h2>AddWithHTMLHelperAndModel</h2>
+@if (!string.IsNullOrEmpty(Model.StatusMessage)) 
+{
+    <h2>@Model.StatusMessage</h2>
+}
+
+@using (Html.BeginForm("MyCustomPage", "Home", FormMethod.Post))
+{
+  @:UserName : @Html.TextBoxFor(m => m.UserName)
+  @:Age : @Html.TextBoxFor(m => m.Age)
+  <input type="submit" value="Submit" />
+}
